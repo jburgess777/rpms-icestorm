@@ -1,3 +1,0 @@
-# icestorm
-
-The icestorm package
