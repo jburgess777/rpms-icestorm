@@ -6,7 +6,7 @@
 
 Name:           icestorm
 Version:        0
-Release:        0.4.20170914git%{shortcommit0}%{?dist}
+Release:        0.5.20170914git%{shortcommit0}%{?dist}
 Summary:        Lattice iCE40 FPGA bitstream creation/analysis/programming tools
 License:        ISC
 URL:            http://www.clifford.at/%{name}/
@@ -30,10 +30,12 @@ find . -name \*.py -exec sed -i 's|/usr/bin/env python3|/usr/bin/python3|' {} \;
 find . -name \.gitignore -delete
 
 %build
-%global moreflags -I/usr/include/libftdi1 -DPREFIX='\\\"%{_prefix}\\\"' -DCHIPDB_SUBDIR='\\\"%{_datarootdir}/%{name}\\\"'
+%global moreflags -I/usr/include/libftdi1
 make %{?_smp_mflags} \
      CFLAGS="%{optflags} %{moreflags}" \
      CXXFLAGS="%{optflags} %{moreflags}" \
+     PREFIX="%{_prefix}" \
+     CHIPDB_SUBDIR="%{name}" \
      LDFLAGS="$RPM_LD_FLAGS"
 
 %install
@@ -53,6 +55,9 @@ mv %{buildroot}%{_bindir}/iceboxdb.py %{buildroot}%{_datarootdir}/%{name}
 %{_datarootdir}/%{name}
 
 %changelog
+* Thu Feb 15 2018 Lubomir Rintel <lkundrak@v3.sk> 0-0.5.20170914git5c4d4db
+- Fix the chipdb path for icetime
+
 * Wed Feb 07 2018 Fedora Release Engineering <releng@fedoraproject.org> - 0-0.4.20170914git5c4d4db
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_28_Mass_Rebuild
 
