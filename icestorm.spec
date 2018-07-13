@@ -6,7 +6,7 @@
 
 Name:           icestorm
 Version:        0
-Release:        0.5.20170914git%{shortcommit0}%{?dist}
+Release:        0.6.20170914git%{shortcommit0}%{?dist}
 Summary:        Lattice iCE40 FPGA bitstream creation/analysis/programming tools
 License:        ISC
 URL:            http://www.clifford.at/%{name}/
@@ -55,6 +55,9 @@ mv %{buildroot}%{_bindir}/iceboxdb.py %{buildroot}%{_datarootdir}/%{name}
 %{_datarootdir}/%{name}
 
 %changelog
+* Fri Jul 13 2018 Fedora Release Engineering <releng@fedoraproject.org> - 0-0.6.20170914git5c4d4db
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_29_Mass_Rebuild
+
 * Thu Feb 15 2018 Lubomir Rintel <lkundrak@v3.sk> 0-0.5.20170914git5c4d4db
 - Fix the chipdb path for icetime
 
