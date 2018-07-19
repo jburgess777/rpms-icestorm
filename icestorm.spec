@@ -15,6 +15,7 @@ Source0:        https://github.com/cliffordwolf/%{name}/archive/%{commit0}.tar.g
 # Fedora-specific patch for datadir
 Patch1:         %{name}-datadir.patch
 
+BuildRequires:  gcc-c++
 BuildRequires:  python%{python3_pkgversion} libftdi-devel
 
 %description
