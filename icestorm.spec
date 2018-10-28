@@ -1,4 +1,4 @@
-%global commit0 5c4d4db08d39673b98ce953f1ab1d1368eeb2f44
+%global commit0 5ab07ed32a768d484284f1d0e58f61c2ef9d398a
 
 %global shortcommit0 %(c=%{commit0}; echo ${c:0:7})
 
@@ -6,7 +6,7 @@
 
 Name:           icestorm
 Version:        0
-Release:        0.6.20170914git%{shortcommit0}%{?dist}
+Release:        0.7.20181028git%{shortcommit0}%{?dist}
 Summary:        Lattice iCE40 FPGA bitstream creation/analysis/programming tools
 License:        ISC
 URL:            http://www.clifford.at/%{name}/
@@ -56,6 +56,10 @@ mv %{buildroot}%{_bindir}/iceboxdb.py %{buildroot}%{_datarootdir}/%{name}
 %{_datarootdir}/%{name}
 
 %changelog
+* Sun Oct 28 2018 Jon Burgess <jburgess777@gmail.com> - 0-0.7.20181028git5ab07ed
+- Update to latest upstream git
+- Adds 5k chip support wanted by latest arachne-pnr
+
 * Fri Jul 13 2018 Fedora Release Engineering <releng@fedoraproject.org> - 0-0.6.20170914git5c4d4db
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_29_Mass_Rebuild
 
