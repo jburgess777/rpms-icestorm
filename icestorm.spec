@@ -55,7 +55,8 @@ mv %{buildroot}%{_bindir}/iceboxdb.py %{buildroot}%{python_sitelib}/
 %doc examples
 %{_bindir}/*
 %{_datarootdir}/%{name}
-%{python_sitelib}/*
+%{python_sitelib}/iceboxdb.py
+%{python_sitelib}/__pycache__/*
 
 %changelog
 * Sun Oct 28 2018 Jon Burgess <jburgess777@gmail.com> - 0-0.8.20181028git5ab07ed
