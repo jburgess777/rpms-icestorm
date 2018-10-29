@@ -6,7 +6,7 @@
 
 Name:           icestorm
 Version:        0
-Release:        0.7.20181028git%{shortcommit0}%{?dist}
+Release:        0.8.20181028git%{shortcommit0}%{?dist}
 Summary:        Lattice iCE40 FPGA bitstream creation/analysis/programming tools
 License:        ISC
 URL:            http://www.clifford.at/%{name}/
@@ -43,7 +43,8 @@ make %{?_smp_mflags} \
 %make_install PREFIX="%{_prefix}"
 chmod +x %{buildroot}%{_bindir}/icebox.py
 mv %{buildroot}%{_datarootdir}/icebox %{buildroot}%{_datarootdir}/%{name}
-mv %{buildroot}%{_bindir}/iceboxdb.py %{buildroot}%{_datarootdir}/%{name}
+mkdir -p %{buildroot}%{python_sitelib}
+mv %{buildroot}%{_bindir}/iceboxdb.py %{buildroot}%{python_sitelib}/
 
 # We could do a minimal check section by running make in the example
 # directories, but that depends on arachne-pnr, which depends on this
@@ -54,8 +55,12 @@ mv %{buildroot}%{_bindir}/iceboxdb.py %{buildroot}%{_datarootdir}/%{name}
 %doc examples
 %{_bindir}/*
 %{_datarootdir}/%{name}
+%{python_sitelib}/*
 
 %changelog
+* Sun Oct 28 2018 Jon Burgess <jburgess777@gmail.com> - 0-0.8.20181028git5ab07ed
+- Move iceboxdb.py into python_sitelib to fix icebox_explain
+
 * Sun Oct 28 2018 Jon Burgess <jburgess777@gmail.com> - 0-0.7.20181028git5ab07ed
 - Update to latest upstream git
 - Adds 5k chip support wanted by latest arachne-pnr
